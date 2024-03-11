@@ -12,7 +12,7 @@
 <head>
     <meta charset="utf-8">
     <title>My BBS</title>
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="{{ url('css/style.css') }}">
 </head>
 
 <body>
@@ -21,7 +21,7 @@
         <ul>
 
             @forelse ($posts as $index => $post )
-            <li><a href="/posts/{{ $index }}">{{ $post }}</a></li>
+            <li><a href="{{route('posts.show',$index)}}">{{ $post }}</a></li>
             @empty
             <li>No posts yet!</li>
             @endforelse
