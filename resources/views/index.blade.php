@@ -19,9 +19,12 @@
     <div class="container">
         <h1>My BBS</h1>
         <ul>
-            <li>{{ $posts[0] }}</li>
-            <li>{{ $posts[1] }}</li>
-            <li>{{ $posts[2] }}</li>
+
+            @forelse ($posts as $index => $post )
+            <li><a href="/posts/{{ $index }}">{{ $post }}</a></li>
+            @empty
+            <li>No posts yet!</li>
+            @endforelse
         </ul>
     </div>
 </body>
