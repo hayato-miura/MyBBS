@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Post;
 
 class PostController extends Controller
 {
@@ -11,13 +12,19 @@ class PostController extends Controller
         'Title B',
         'Title C',
     ];
-    public function index() {
-    return view('index')
-    ->with(['posts' => $this->posts]);
-}
+    public function index()
+    {
+        $posts = Post::latest()->get();
+        return view('index')
+            ->with(['posts' => $posts]);
+    }
 
-public function show($id){
-    return  view('posts.show')
-    -> with(['post' => $this->posts[$id]]);
-}
+    public function show(Post $post)
+    {
+        return  view('posts.show')
+            ->with(['post' => $post]);
+    }
+    public function create(){
+        return view('posts.create');
+    }
 }

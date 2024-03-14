@@ -7,7 +7,16 @@ h1{
     border-bottom: 1px solid ;
     font-size: 18px;
     margin: 16px 0;
-    padding-bottom:8px
+    padding-bottom:8px;
+    display:flex;
+    align-items: center;
+}
+
+h1 > a {
+    font-size: 16px;
+    font-weight: normal;
+    margin-left: auto;
+
 }
 
 li{
@@ -17,4 +26,8 @@ li{
 
 .back-link{
     font-size: 14px;
+}
+
+p{
+    line-height: 1.6;
 }
