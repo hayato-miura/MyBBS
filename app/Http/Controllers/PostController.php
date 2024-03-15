@@ -44,12 +44,19 @@ class PostController extends Controller
     }
     public function update(PostRequest $request, Post $post)
     {
-        
+
         $post->title = $request->title;
         $post->body = $request->body;
         $post->save();
 
         return redirect()
             ->route('posts.show', $post);
+    }
+
+
+    public function destroy(Post $post){
+        $post->delete();
+        return redirect()
+        ->route('posts.index');
     }
 }
